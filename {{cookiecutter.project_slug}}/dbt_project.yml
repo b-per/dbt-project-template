@@ -1,0 +1,28 @@
+
+name: '{{ cookiecutter.project_slug }}'
+config-version: 2
+
+profile: 'default'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+models:
+  '{{ cookiecutter.project_slug }}':
+    marts:
+      # models in the marts layer should be tables or incremental models in the majority of cases
+      +materialized: table
+    staging:
+      # models in staging should be views for the vast majority of cases
+      +materialized: view
+  dbt_project_evaluator:
+    +enabled: '{{ env_var("DBT_ENV_NAME", "DEV") <> "DEV" | as_bool }}'
+    +schema: dpe
