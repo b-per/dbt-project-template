@@ -24,5 +24,5 @@ models:
       # models in staging should be views for the vast majority of cases
       +materialized: view
   dbt_project_evaluator:
-    +enabled: '{{ {{ env_var("DBT_ENV_NAME", "DEV") <> "DEV" | as_bool }} }}'
+    +enabled: {{ '{{ env_var("DBT_ENV_NAME", "DEV") <> "DEV" | as_bool }}' }}
     +schema: dpe
