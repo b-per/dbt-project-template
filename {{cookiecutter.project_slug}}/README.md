@@ -2,4 +2,4 @@
 
 ## Running the project
 
-Head to dbt Cloud to run the project. Its name is {{ cookiecutter.project_slug }}
+Head to dbt Cloud to run the project. Its name is "{{ cookiecutter.project_name }}"
