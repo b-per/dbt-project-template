@@ -7,5 +7,6 @@ It contains:
 - some recommended packages
 - a recommended folder structure
 - a default `.sqlfluff` configuration
+- a PR template
 
 In the current version only the project name and slugs can be templatized
